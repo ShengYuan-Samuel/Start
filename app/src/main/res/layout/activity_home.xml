@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/title_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/launch_logo" />
+
+
+        <ImageView
+            android:id="@+id/image_shape"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/home_master_shape" />
+
+        <ImageView
+            android:id="@+id/image_valuable"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignRight="@id/image_shape"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="50dp"
+            android:src="@mipmap/publish_valuable" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+   <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+
+        <RadioButton
+            android:id="@+id/homeBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/mingshi_select"
+            android:gravity="center"
+            android:text="名师" />
+
+        <RadioButton
+            android:id="@+id/workBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/zuoye_select"
+            android:gravity="center"
+            android:text="作业" />
+
+        <RadioButton
+            android:id="@+id/baodianBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/baodian_select"
+            android:gravity="center"
+            android:text="宝典" />
+
+        <RadioButton
+            android:id="@+id/foreshowBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/yugao_select"
+            android:gravity="center"
+            android:text="预告" />
+
+        <RadioButton
+            android:id="@+id/myBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/wode_select"
+            android:gravity="center"
+            android:text="我的" />
+    </RadioGroup>
+
+
+
+
+
+</LinearLayout> 
+

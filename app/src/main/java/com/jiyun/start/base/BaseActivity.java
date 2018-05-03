@@ -8,9 +8,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.jiyun.start.App;
+import com.jiyun.start.R;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import butterknife.ButterKnife;
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
     protected T presenter;
@@ -18,6 +21,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayOutId());
+        App.context = this;
+        ButterKnife.bind(this);
         presenter = getPresenter();
         if (presenter!=null){
             presenter.attachView(this);
@@ -67,31 +72,30 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     protected abstract void init();
     //这是更新数据的
     protected abstract void loadData();
-    //这是统一管理标题的
+    //这是统一管理fragment的
     private BaseFragment lastFragment;
-
-    public BaseFragment setContentView(int context, Class<? extends BaseFragment> classFragment){
+    public BaseFragment setContentView(Class<? extends BaseFragment> classFragment){
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         String simpleName = classFragment.getSimpleName();
-        BaseFragment fragment = (BaseFragment) manager.findFragmentByTag(simpleName);
-            try {
-                if (fragment == null){
-                    fragment = classFragment.newInstance();
-                    transaction.add(context,fragment,simpleName);
-                }
-                if (lastFragment != null){
-                    transaction.hide(lastFragment);
-                }
-                transaction.show(fragment);
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+        BaseFragment fragmentByTag = (BaseFragment) manager.findFragmentByTag(simpleName);
+        try {
+            if (fragmentByTag == null){
+                fragmentByTag = classFragment.newInstance();
+                transaction.add(R.id.fl_content,fragmentByTag,simpleName);
             }
-            lastFragment =fragment;
-            transaction.commit();
-             return fragment;
+            if (lastFragment != null){
+                transaction.hide(lastFragment);
+            }
+            transaction.show(fragmentByTag);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        lastFragment = fragmentByTag;
 
+        transaction.commit();
+        return fragmentByTag;
     }
 }
