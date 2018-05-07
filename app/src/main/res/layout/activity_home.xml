@@ -39,6 +39,10 @@
             android:src="@mipmap/publish_valuable" />
 
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"/>
 
     <FrameLayout
         android:id="@+id/fl_content"

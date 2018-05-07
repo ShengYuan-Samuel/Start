@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jiyun.start">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -17,7 +22,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".ui.registerview.activity.RegsterActivity" />
+        <activity android:name=".ui.registerview.activity.ComplteteActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.jiyun.start.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".ui.loginview.activity.LoginActivity" />
+        <activity android:name=".ui.loginview.activity.ForgetPswActivity" />
+        <activity android:name=".ui.loginview.activity.ResetActivity" />
+        <activity android:name=".ui.myview.activity.InFoActivity"></activity>
     </application>
 
 </manifest>

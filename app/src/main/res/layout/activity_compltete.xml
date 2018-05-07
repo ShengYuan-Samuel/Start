@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:id="@+id/compltete_return"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/register_return" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="完善信息" />
+
+            <TextView
+                android:id="@+id/tv_tiaoguo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="跳过"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/reg_relayout"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/image_photo"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:src="@mipmap/user_head_portrait" />
+
+                <ImageView
+                    android:id="@+id/image_camera"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_camera" />
+            </RelativeLayout>
+
+            <com.jiyun.start.view.ClearEditText
+                android:id="@+id/reg_userName"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/reg_relayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:hint="请输入昵称" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_layout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="215dp"
+            android:orientation="horizontal"
+            tools:ignore="NotSibling">
+
+            <CheckBox
+                android:id="@+id/complete_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/complete_userinfo_check_man"
+                android:paddingLeft="8dp"
+                android:text="我是男神"
+                android:textColor="@drawable/complete_userinfo_check_man_tv" />
+
+            <CheckBox
+                android:id="@+id/complete_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:button="@drawable/complete_userinfo_check_woman"
+                android:paddingLeft="8dp"
+                android:text="我是女神"
+                android:textColor="@drawable/complete_userinfo_check_woman_tv" />
+        </LinearLayout>
+
+        <com.jiyun.start.view.ClearEditText
+            android:id="@+id/reg_userpsw"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/lin_layout3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:hint="请输入密码" />
+
+        <Button
+            android:id="@+id/compltete_okBtu"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/reg_userpsw"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/register_btu"
+            android:enabled="true"
+            android:text="完成"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+</LinearLayout> 
+
